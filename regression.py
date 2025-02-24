@@ -30,10 +30,11 @@ plt.scatter(x, y, color="red") # actual plot
 plt.show() # renderize the plot to show it
 
 # splitting the dataset into training and test (0.2 -- > 20%)
-x_train, x_test, y_train, y_test = train_test_split(x, y, test_size = 0.2, random_state = 0 )
+x_train, x_test, y_train, y_test = train_test_split(x, y, test_size = 0.2, random_state = 101 )
 
 # Checking the train and the test size
 print(f"\nThe total x size is: {x.shape[0]}")
-print(f"\nThe total x_train size is: {x_train.shape[0]}")
-print(f"\nThe total x_test size is: {x_test.shape[0]}")
+print(f"\nThe total x_train size is: {x_train.shape[0]}, and is the {x_train.shape[0] / x.shape * 100}")
+print(f"\nThe total x_test size is: {x_test.shape[0]}, and is the {x_test.shape[0] / x.shape * 100}")
+
 # --- END OF MAIN CODE ---
