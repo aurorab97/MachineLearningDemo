@@ -34,7 +34,13 @@ x_train, x_test, y_train, y_test = train_test_split(x, y, test_size = 0.2, rando
 
 # Checking the train and the test size
 print(f"\nThe total x size is: {x.shape[0]}")
-print(f"\nThe total x_train size is: {x_train.shape[0]}, and is the {x_train.shape[0] / x.shape * 100}")
-print(f"\nThe total x_test size is: {x_test.shape[0]}, and is the {x_test.shape[0] / x.shape * 100}")
+print(f"\nThe total x_train size is: {x_train.shape[0]}, and is the {x_train.shape[0] / x.shape[0] * 100}")
+print(f"\nThe total x_test size is: {x_test.shape[0]}, and is the {x_test.shape[0] / x.shape[0] * 100}")
+
+print(f"\nThe total y size is: {y.shape[0]}")
+print(f"\nThe total y_train size is: {y_train.shape[0]}, and is the {y_train.shape[0] / y.shape[0] * 100}")
+print(f"\nThe total y_test size is: {y_test.shape[0]}, and is the {y_test.shape[0] / y.shape[0] * 100}")
+
+# feature scaling
 
 # --- END OF MAIN CODE ---
