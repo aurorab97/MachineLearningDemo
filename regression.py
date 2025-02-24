@@ -64,7 +64,9 @@ print(f"\n-- AFTER SCALING -- y_test:\n{y_test[:5]}")
 model = LinearRegression()
 # performing the training on the train data (i.e x_train_scaled, x_train)
 model.fit(x_train_scaled, y_train)
+# predicting new values
 y_pred = model.predict(x_test_scaled)
+# visualizing the regression
 print(f"\nAfter the training, the params for the Regressor are: {model.coef_}")
 
 # visuazing the regression
@@ -76,6 +78,7 @@ plt.plot(x_test, y_pred, color = 'blue', label = 'Predicted Data')
 plt.legend()
 plt.show()
 
+# evaluating the model
 rmse = math.sqrt(mean_squared_error(y_test, y_pred))
 print(f"\nRMSE: {rmse:.2f}")
 
