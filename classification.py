@@ -26,3 +26,35 @@ y = data['target'].values
 
 # splitting the dataset into trading
 x_train, x_test, y_train, y_test = train_test_split(x, y, test_size = 0.2, random_state = 101 )
+
+# feature scaling
+scaler = StandardScaler()
+# we are going to scale ONLY the features (i.e. the X) and NOT the y!
+x_train_scaled = scaler.fit_transform(x_train)
+x_test_scaled = scaler.transform(x_test)
+
+# creating model
+model = RandomForestClassifier(n_estimators = 100, random_state = 101)
+
+# training model
+model.fit(x_train_scaled, y_train)
+
+# prediction over the test set
+y_pred = model.predict(x_test_scaled)
+
+# evaluting the model
+accuracy = accuracy_score(y_test, y_pred)
+print(f"\nThe accuracy of the model is: {accuracy * 100:.2f}")
+
+# classification report
+print(f"\nClassification report:\n{classification_report(y_test, y_pred)}")
+
+# confusion matrix
+conf_matrix = confusion_matrix(y_test, y_pred)
+sns.heatmap(conf_matrix, annot = True, fmt = 'd', cmap = 'Blues', xticklabels = dataset.target_names,
+            yticklabels = dataset.target_names)
+plt.title('Confusion Matrix')
+plt.xlabel('Predicted')
+plt.ylabel('Actual')
+plt.show()
+
