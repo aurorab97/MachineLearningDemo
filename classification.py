@@ -18,5 +18,11 @@ data = pd.DataFrame(data = dataset.data, columns = dataset.feature_names)
 data['target'] = dataset.target
 
 # visualizing the first rows of the dataset
-print(f"\nHere are the first 5 rows of dataset:\n{dataset.head()}")
+print(f"\nHere are the first 5 rows of dataset:\n{data.head()}")
 
+# separate the data in features and target
+x = data.iloc[:, :-1].values
+y = data['target'].values
+
+# splitting the dataset into trading
+x_train, x_test, y_train, y_test = train_test_split(x, y, test_size = 0.2, random_state = 101 )
